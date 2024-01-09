@@ -10,3 +10,6 @@ g++ AllMain.cpp LEDController.o OFController.o -lws2811 -o AllMain
 
 # 以超級用戶權限執行 AllMain
 sudo ./AllMain
+
+## 更新rpi的library
+git pull origin main
