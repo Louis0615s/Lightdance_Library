@@ -1,5 +1,6 @@
 # compile
 ```bash
+# 編譯 OFController.cpp
 g++ -o OFController.o -I./include -c OFController.cpp
 
 # 編譯 LEDController.cpp
