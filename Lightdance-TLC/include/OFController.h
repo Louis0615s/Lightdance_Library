@@ -37,7 +37,7 @@ class OFController {
     private:
         int I2CInit();
         int fd[Config::NUMTLC];
-        bool err_flag[Config::NUMPCA];
+        bool err_flag[Config::NUMTLC];
         void I2C_Specified_Init(int i);
 };
 
