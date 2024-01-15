@@ -87,7 +87,7 @@ int OFController::sendAll(const vector<int> &statusLists) {
                     counter++;
                 }
                 if(write(fd[i], buffer, 16) != 16) {
-                    fprintf(stderr, "Failed to write to the I2C bus %x.\n", Config::PCAAddr[i]);
+                    fprintf(stderr, "Failed to write to the I2C bus %x.\n", Config::TLCAddr[i]);
                     err_flag[i] = true;
                 } 
             }
@@ -108,7 +108,7 @@ int OFController::I2CInit() {
 }
 
 void OFController::I2C_Specified_Init(int i) {
-    if (ioctl(fd[i], I2C_SLAVE, Config::PCAAddr[i]) < 0) {
+    if (ioctl(fd[i], I2C_SLAVE, Config::TLCAddr[i]) < 0) {
         fprintf(stderr, "Failed to acquire bus access and/or talk to slave %d", i);
     }
     unsigned char buffer[25];
