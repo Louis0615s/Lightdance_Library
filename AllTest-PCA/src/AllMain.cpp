@@ -16,14 +16,14 @@ int main() {
     OF.init();
     strip.init();
 
-    status.resize(5*Config::NUMTLC);
+    status.resize(5*Config::NUMPCA);
     LEDstatus.resize(strip.num_channel);
     for (int i = 0; i < strip.num_channel; i++)
 	    LEDstatus[i].resize(Config::WS2812_NUM_LED[i]);
 
     while(true) {
         for(int a = 1; a <= 100 ; a++) {
-            for (int i = 0; i < 5*Config::NUMTLC; i++) {
+            for (int i = 0; i < 5*Config::NUMPCA; i++) {
                 status[i] = 0xFF000000 + a;
             }
             for(int i = 0; i < strip.num_channel; i++)
@@ -35,7 +35,7 @@ int main() {
         }
 
         for(int a = 100; a >= 1 ; a--) {
-            for(int i = 0; i < 5*Config::NUMTLC; i++) {
+            for(int i = 0; i < 5*Config::NUMPCA; i++) {
                 status[i] = 0xFF000000 + a;
             }
             for(int i = 0; i < strip.num_channel; i++)
@@ -46,7 +46,7 @@ int main() {
             usleep(100);
         }
         for(int a = 1; a <= 100 ; a++) {
-            for(int i = 0; i < 5*Config::NUMTLC; i++) {
+            for(int i = 0; i < 5*Config::NUMPCA; i++) {
                 status[i] = 0x00FF0000 + a;
             }
             for(int i = 0; i < strip.num_channel; i++)
@@ -57,7 +57,7 @@ int main() {
             usleep(100);
         }
         for(int a = 100; a >= 1 ; a--) {
-            for(int i = 0; i < 5*Config::NUMTLC; i++) {
+            for(int i = 0; i < 5*Config::NUMPCA; i++) {
                 status[i] = 0x00FF0000 + a;
             }
             for(int i = 0; i < strip.num_channel; i++)
@@ -68,7 +68,7 @@ int main() {
             usleep(100);
         }
         for(int a = 1; a <= 100 ; a++) {
-            for(int i = 0; i < 5*Config::NUMTLC; i++) {
+            for(int i = 0; i < 5*Config::NUMPCA; i++) {
                 status[i] = 0x0000FF00 + a;
             }
             for(int i = 0; i < strip.num_channel; i++)
@@ -80,7 +80,7 @@ int main() {
         }
 
         for(int a = 100; a >= 1 ; a--) {
-            for(int i = 0; i < 5*Config::NUMTLC; i++) {
+            for(int i = 0; i < 5*Config::NUMPCA; i++) {
                 status[i] = 0x0000FF00 + a;
             }
             for(int i = 0; i < strip.num_channel; i++)

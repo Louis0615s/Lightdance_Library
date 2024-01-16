@@ -2,8 +2,8 @@
 #define CONFIG_H
 
 namespace Config {
-    inline constexpr int NUMTLC = 12;                                                                               // number of TLC59116(F)
-    inline constexpr int TLCAddr[] = {0x60, 0x61, 0x62, 0x63, 0x64, 0x65, 0x66, 0x67, 0x69, 0x6A, 0x6C, 0x6D };     // TLC59116(F) addresses  
+    inline constexpr int NUMPCA = 7;                                                                                // number of PCA
+    inline constexpr int PCAAddr[] = {0x1f, 0x20, 0x22, 0x23, 0x5b, 0x5c, 0x5e};                                    // PCA addresses  
     
     //OF brightness level for brightness control
     inline constexpr int OF_BRIGHTNESS_LEVEL = 255;
