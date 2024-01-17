@@ -32,7 +32,18 @@ int main()
             status[3] = 0;
             status[4] = 0x0000FF00 + a;
             OF.sendAll(status);
-            usleep(100);
+            usleep(150);
+        }
+
+        for (int a = 254; a >= 0; a--)
+        {
+            status[0] = 0xFF000000 + a;
+            status[1] = 0;
+            status[2] = 0x00FF0000 + a;
+            status[3] = 0;
+            status[4] = 0x0000FF00 + a;
+            OF.sendAll(status);
+            usleep(150);
         }
 
         // for (int a = 1; a <= 255; a++)
