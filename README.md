@@ -14,3 +14,11 @@ sudo ./AllMain
 
 # 更新rpi的library，注意要在Lightdance_Library底下執行
 git pull origin main
+
+# 將rpi的更新push至github，注意要在Lightdance_Library底下執行 
+git add .
+git commit <"commit message">
+git push
+
+
+ 
