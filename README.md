@@ -23,7 +23,7 @@ git push
 
 # directory tree of /Lightdance_Library/Lightdance-PCA
 
-Lightdance_Library/Lightdance-PCA
+Lightdance_Lightdance/Lightdance-PCA
 ├── include
 │   ├── Config.h
 │   ├── LEDController.h
