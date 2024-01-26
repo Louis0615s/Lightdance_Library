@@ -21,4 +21,32 @@ git commit <"commit message">
 git push
 
 
+# directory tree of /Lightdance_Library/Lightdance-PCA
+
+Lightdance_Library/Lightdance-PCA
+├── include
+│   ├── Config.h
+│   ├── LEDController.h
+│   ├── OFController.h
+│   └── ws2811_include
+│       ├── clk.h
+│       ├── dma.h
+│       ├── gpio.h
+│       ├── mailbox.h
+│       ├── pcm.h
+│       ├── pwm.h
+│       ├── rpihw.h
+│       └── ws2811.h
+├── LEDController.o
+├── OFController.o
+├── out
+├── src
+│   ├── AllMain.cpp
+│   ├── LEDController.cpp
+│   ├── LightOff.cpp
+│   └── OFController.cpp
+└── tree.txt
+
+4 directories, 19 files
+
  

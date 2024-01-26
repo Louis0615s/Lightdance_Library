@@ -1,0 +1,25 @@
+[01;34m.[0m
+├── [01;34minclude[0m
+│   ├── Config.h
+│   ├── LEDController.h
+│   ├── OFController.h
+│   └── [01;34mws2811_include[0m
+│       ├── clk.h
+│       ├── dma.h
+│       ├── gpio.h
+│       ├── mailbox.h
+│       ├── pcm.h
+│       ├── pwm.h
+│       ├── rpihw.h
+│       └── ws2811.h
+├── LEDController.o
+├── OFController.o
+├── [01;32mout[0m
+├── [01;34msrc[0m
+│   ├── AllMain.cpp
+│   ├── LEDController.cpp
+│   ├── LightOff.cpp
+│   └── OFController.cpp
+└── tree.txt
+
+4 directories, 19 files
