@@ -44,18 +44,20 @@ int main()
 	    {
                 for (int j = 0; j < Config::WS2812_NUM_LED[i]; j++) 
 	        {
-                    LEDstatus[i][j] = 0xFFFFFF00 + a; //adjust color here
+                    LEDstatus[i][j] = 0xFFFFFF00 + a;
 		}
 	    }
             strip.sendAll(LEDstatus);
 
             sleep(1/256); //sleep(<total time (sec)> / <range of a>)
         }
+
+	sleep(1); //delay time when light up
       
 	for (int a = 255; a >= 0; a--) //brightness decrement from 255 to 0
         {
 	    //OF
-            for (int i = 0; i < 5 * Config::NUMPCA; i++) //adjust color here
+            for (int i = 0; i < 5 * Config::NUMPCA; i++)
 	    {
 		if ( i%2 == 1 )
 	            status[i] = 0xFF000000 + a; 
@@ -69,13 +71,15 @@ int main()
 	    {
                 for (int j = 0; j < Config::WS2812_NUM_LED[i]; j++)
 		{
-                    LEDstatus[i][j] = 0xFFFFFF00 + a; //adjust color here
+                    LEDstatus[i][j] = 0xFFFFFF00 + a;
 		}
 	    }
             strip.sendAll(LEDstatus);
             
             sleep(1/256); //sleep(<total time (sec)> / <range of a>)
         }
+
+	sleep(1); //delay time when light off
     }
     strip.finish();
     return 0;
