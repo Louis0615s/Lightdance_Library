@@ -29,7 +29,24 @@ Lightdance_Lightdance/Lightdance-PCA
 │   └── OFController.cpp
 └── tree.txt
 
-1| compile & execution
+== For Users ==
+1| how to use this code
+
+Only modify the following two files:
+a. /include/Config.h
+  Adjust hardware properties including:
+  i. number of PCA (which controls OF)
+  ii. number of LED on LED-strip
+  iii. brightness of OF and LED
+  iV. gamma correction of OF and LED
+b. /src/AllMain.cpp
+  Adjust how OF and LED work including:
+  i. color (RGB)
+  ii. brightness (0~255)
+  iii. time
+
+== For Developers ==
+2| compile & execution
 
 # 編譯 OFController.cpp
 g++ -o OFController.o -I./include -c ./src/OFController.cpp
@@ -43,15 +60,13 @@ g++ ./src/AllMain.cpp LEDController.o OFController.o -lws2811 -o AllMain
 # 以超級用戶權限執行 AllMain
 sudo ./AllMain
 
-2| git version control
+3| git version control
 
 # 更新rpi的library，注意要在Lightdance_Library底下執行
 git pull origin main
 
 # 將rpi的更新push至github，注意要在Lightdance_Library底下執行 
 git add .
-git commit -m <"commit message">
+git commit -m "<commit message>"
 git push
-
-3| basic parameters in Config.h
 
