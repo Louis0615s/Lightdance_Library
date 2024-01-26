@@ -32,8 +32,8 @@ int main()
 	    //OF
             for (int i = 0; i < 5 * Config::NUMPCA; i++)
             {
-                if ( i%2 == 1 )
-	            status[i] = 0xFF000000 + a; 
+                if ( i%2 == 0 )
+	            status[i] = 0xFFFFFF00 + a; 
 		else
 		    status[i] = 0xFFFFFF00 ;
 	    }
@@ -59,8 +59,8 @@ int main()
 	    //OF
             for (int i = 0; i < 5 * Config::NUMPCA; i++)
 	    {
-		if ( i%2 == 1 )
-	            status[i] = 0xFF000000 + a; 
+		if ( i%2 == 0 )
+	            status[i] = 0xFFFFFF00 + a; 
 		else
 		    status[i] = 0xFFFFFF00 ;
 	    }
