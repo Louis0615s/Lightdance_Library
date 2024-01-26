@@ -1,25 +1,7 @@
 # compile
 ```bash
-# 編譯 OFController.cpp
-g++ -o OFController.o -I./include -c ./src/OFController.cpp
 
-# 編譯 LEDController.cpp
-g++ -o LEDController.o -I./include -c ./src/LEDController.cpp
-
-# 編譯 AllMain.cpp，連結 LEDController.o 和 OFController.o，使用 lws2811 库，生成可執行文件 AllMain
-g++ ./src/AllMain.cpp LEDController.o OFController.o -lws2811 -o AllMain
-
-# 以超級用戶權限執行 AllMain
-sudo ./AllMain
-
-# 更新rpi的library，注意要在Lightdance_Library底下執行
-git pull origin main
-
-# 將rpi的更新push至github，注意要在Lightdance_Library底下執行 
-git add .
-git commit <"commit message">
-git push
-
+0| directory tree
 
 # directory tree of /Lightdance_Library/Lightdance-PCA
 
@@ -47,6 +29,29 @@ Lightdance_Lightdance/Lightdance-PCA
 │   └── OFController.cpp
 └── tree.txt
 
-4 directories, 19 files
+1| compile & execution
 
- 
+# 編譯 OFController.cpp
+g++ -o OFController.o -I./include -c ./src/OFController.cpp
+
+# 編譯 LEDController.cpp
+g++ -o LEDController.o -I./include -c ./src/LEDController.cpp
+
+# 編譯 AllMain.cpp，連結 LEDController.o 和 OFController.o，使用 lws2811 库，生成可執行文件 AllMain
+g++ ./src/AllMain.cpp LEDController.o OFController.o -lws2811 -o AllMain
+
+# 以超級用戶權限執行 AllMain
+sudo ./AllMain
+
+2| git version control
+
+# 更新rpi的library，注意要在Lightdance_Library底下執行
+git pull origin main
+
+# 將rpi的更新push至github，注意要在Lightdance_Library底下執行 
+git add .
+git commit -m <"commit message">
+git push
+
+3| basic parameters in Config.h
+
