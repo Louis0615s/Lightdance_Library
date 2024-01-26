@@ -1,0 +1,5 @@
+/home/calculus365/Lightdance_Library/Lightdance-TLC/CMakeFiles/OFController.dir
+/home/calculus365/Lightdance_Library/Lightdance-TLC/CMakeFiles/LEDController.dir
+/home/calculus365/Lightdance_Library/Lightdance-TLC/CMakeFiles/AllMain.dir
+/home/calculus365/Lightdance_Library/Lightdance-TLC/CMakeFiles/edit_cache.dir
+/home/calculus365/Lightdance_Library/Lightdance-TLC/CMakeFiles/rebuild_cache.dir

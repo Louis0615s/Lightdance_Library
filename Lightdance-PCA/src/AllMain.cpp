@@ -16,13 +16,15 @@ int main() {
     OF.init();
     strip.init();
 
+    int MAX_BRIGHTNESS = 255;
+
     status.resize(5*Config::NUMPCA);
     LEDstatus.resize(strip.num_channel);
     for (int i = 0; i < strip.num_channel; i++)
 	    LEDstatus[i].resize(Config::WS2812_NUM_LED[i]);
 
     while(true) {
-        for(int a = 1; a <= 100 ; a++) {
+        for(int a = 1; a <= MAX_BRIGHTNESS; a++) {
             for (int i = 0; i < 5*Config::NUMPCA; i++) {
                 status[i] = 0xFF000000 + a;
             }
@@ -34,7 +36,7 @@ int main() {
             usleep(100);
         }
 
-        for(int a = 100; a >= 1 ; a--) {
+        for(int a = MAX_BRIGHTNESS; a >= 1 ; a--) {
             for(int i = 0; i < 5*Config::NUMPCA; i++) {
                 status[i] = 0xFF000000 + a;
             }
@@ -45,7 +47,7 @@ int main() {
             OF.sendAll(status);
             usleep(100);
         }
-        for(int a = 1; a <= 100 ; a++) {
+        for(int a = 1; a <= MAX_BRIGHTNESS; a++) {
             for(int i = 0; i < 5*Config::NUMPCA; i++) {
                 status[i] = 0x00FF0000 + a;
             }
@@ -56,7 +58,7 @@ int main() {
             OF.sendAll(status);
             usleep(100);
         }
-        for(int a = 100; a >= 1 ; a--) {
+        for(int a = MAX_BRIGHTNESS; a >= 1 ; a--) {
             for(int i = 0; i < 5*Config::NUMPCA; i++) {
                 status[i] = 0x00FF0000 + a;
             }
@@ -67,7 +69,7 @@ int main() {
             OF.sendAll(status);
             usleep(100);
         }
-        for(int a = 1; a <= 100 ; a++) {
+        for(int a = 1; a <= MAX_BRIGHTNESS; a++) {
             for(int i = 0; i < 5*Config::NUMPCA; i++) {
                 status[i] = 0x0000FF00 + a;
             }
@@ -79,7 +81,7 @@ int main() {
             usleep(100);
         }
 
-        for(int a = 100; a >= 1 ; a--) {
+        for(int a = MAX_BRIGHTNESS; a >= 1 ; a--) {
             for(int i = 0; i < 5*Config::NUMPCA; i++) {
                 status[i] = 0x0000FF00 + a;
             }

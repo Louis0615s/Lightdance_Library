@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/AllMain.dir/src/AllMain.cpp.o CMakeFiles/OFController.dir/src/OFController.cpp.o CMakeFiles/LEDController.dir/src/LEDController.cpp.o -o AllMain  -lws2811 
