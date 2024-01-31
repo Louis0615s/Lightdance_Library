@@ -17,9 +17,9 @@ void LEDColor::setColor(const int &colorCode) {
         g_cal = (1.0) * (G / 255.0) * a;
         b_cal = (1.0) * (B / 255.0) * a;
 
-	r_cal = pow(r_cal, Config::GAMMA_LED);
-	g_cal = pow(g_cal, Config::GAMMA_LED);
-	b_cal = pow(b_cal, Config::GAMMA_LED);
+	r_cal = pow(r_cal, Config::GAMMA_LED_R);
+	g_cal = pow(g_cal, Config::GAMMA_LED_G);
+	b_cal = pow(b_cal, Config::GAMMA_LED_B);
 
         r_cal *= Config::LED_MAX_BRIGHTNESS;
         g_cal *= Config::LED_MAX_BRIGHTNESS;
