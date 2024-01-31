@@ -19,9 +19,9 @@ void OFColor::setColor(const int &colorCode)
         g_cal = (1.0) * G / Config::OF_BRIGHTNESS_LEVEL * a;
         b_cal = (1.0) * B / Config::OF_BRIGHTNESS_LEVEL * a;
 
-        r_cal = pow(r_cal, Config::GAMMA_R);
-        g_cal = pow(g_cal, Config::GAMMA_G);
-        b_cal = pow(b_cal, Config::GAMMA_B);
+        r_cal = pow(r_cal, Config::GAMMA_OF_R);
+        g_cal = pow(g_cal, Config::GAMMA_OF_G);
+        b_cal = pow(b_cal, Config::GAMMA_OF_B);
 
         r_cal *= Config::OF_MAX_BRIGHTNESS_R;
         g_cal *= Config::OF_MAX_BRIGHTNESS_G;
