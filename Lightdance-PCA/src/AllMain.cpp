@@ -7,91 +7,79 @@ using namespace std;
 #include "../include/LEDController.h"
 #include "../include/OFController.h"
 
-int main() {
+int main()
+{
+    //Optical Fiber (OF) Set Up
     OFController OF;
-    LEDController strip;
-    vector<vector<int>> LEDstatus;
     vector<int> status;
-
     OF.init();
+    status.resize(5 * Config::NUMPCA);
+
+    //LED strip set up
+    vector<vector<int>> LEDstatus;
+    LEDController strip;
     strip.init();
-
-    int MAX_BRIGHTNESS = 255;
-
-    status.resize(5*Config::NUMPCA);
     LEDstatus.resize(strip.num_channel);
     for (int i = 0; i < strip.num_channel; i++)
-	    LEDstatus[i].resize(Config::WS2812_NUM_LED[i]);
+        LEDstatus[i].resize(Config::WS2812_NUM_LED[i]);
 
-    while(true) {
-        for(int a = 1; a <= MAX_BRIGHTNESS; a++) {
-            for (int i = 0; i < 5*Config::NUMPCA; i++) {
-                status[i] = 0xFF000000 + a;
-            }
-            for(int i = 0; i < strip.num_channel; i++)
-	            for(int j = 0; j < Config::WS2812_NUM_LED[i]; j++)	
-                    LEDstatus[i][j] = 0xFF000000 + a;
+	
+    while (true)
+    {
+	//breathe
+	for (int a = 0; a <= 255; a++) //brightness increment from 0 to 255
+        {
+	    //OF
+            for (int i = 0; i < 5 * Config::NUMPCA; i++)
+            {
+                if ( i%2 == 0 )
+	            status[i] = 0xFFFFFF00 + a; 
+		else
+		    status[i] = 0xFFFFFF00 ;
+	    }
+	    OF.sendAll(status);
+	    
+	    //LED strip
+            for (int i = 0; i < strip.num_channel; i++)
+	    {
+                for (int j = 0; j < Config::WS2812_NUM_LED[i]; j++) 
+	        {
+                    LEDstatus[i][j] = 0xFFFFFF00 + a;
+		}
+	    }
             strip.sendAll(LEDstatus);
-            OF.sendAll(status);
-            usleep(100);
-        }
 
-        for(int a = MAX_BRIGHTNESS; a >= 1 ; a--) {
-            for(int i = 0; i < 5*Config::NUMPCA; i++) {
-                status[i] = 0xFF000000 + a;
-            }
-            for(int i = 0; i < strip.num_channel; i++)
-	            for(int j = 0; j < Config::WS2812_NUM_LED[i]; j++)	
-                    LEDstatus[i][j] = 0xFF000000 + a;
-            strip.sendAll(LEDstatus);
-            OF.sendAll(status);
-            usleep(100);
-        }
-        for(int a = 1; a <= MAX_BRIGHTNESS; a++) {
-            for(int i = 0; i < 5*Config::NUMPCA; i++) {
-                status[i] = 0x00FF0000 + a;
-            }
-            for(int i = 0; i < strip.num_channel; i++)
-	            for(int j = 0; j < Config::WS2812_NUM_LED[i]; j++)	
-                    LEDstatus[i][j] = 0x00FF0000 + a;
-            strip.sendAll(LEDstatus);
-            OF.sendAll(status);
-            usleep(100);
-        }
-        for(int a = MAX_BRIGHTNESS; a >= 1 ; a--) {
-            for(int i = 0; i < 5*Config::NUMPCA; i++) {
-                status[i] = 0x00FF0000 + a;
-            }
-            for(int i = 0; i < strip.num_channel; i++)
-	            for(int j = 0; j < Config::WS2812_NUM_LED[i]; j++)	
-                    LEDstatus[i][j] = 0x00FF0000 + a;
-            strip.sendAll(LEDstatus);
-            OF.sendAll(status);
-            usleep(100);
-        }
-        for(int a = 1; a <= MAX_BRIGHTNESS; a++) {
-            for(int i = 0; i < 5*Config::NUMPCA; i++) {
-                status[i] = 0x0000FF00 + a;
-            }
-            for(int i = 0; i < strip.num_channel; i++)
-	            for(int j = 0; j < Config::WS2812_NUM_LED[i]; j++)	
-                    LEDstatus[i][j] = 0x0000FF00 + a;
-            strip.sendAll(LEDstatus);
-            OF.sendAll(status);
-            usleep(100);
+            sleep(1/256); //sleep(<total time (sec)> / <range of a>)
         }
 
-        for(int a = MAX_BRIGHTNESS; a >= 1 ; a--) {
-            for(int i = 0; i < 5*Config::NUMPCA; i++) {
-                status[i] = 0x0000FF00 + a;
-            }
-            for(int i = 0; i < strip.num_channel; i++)
-	            for(int j = 0; j < Config::WS2812_NUM_LED[i]; j++)	
-                    LEDstatus[i][j] = 0x0000FF00 + a;
+	sleep(1); //delay time when light up
+      
+	for (int a = 255; a >= 0; a--) //brightness decrement from 255 to 0
+        {
+	    //OF
+            for (int i = 0; i < 5 * Config::NUMPCA; i++)
+	    {
+		if ( i%2 == 0 )
+	            status[i] = 0xFFFFFF00 + a; 
+		else
+		    status[i] = 0xFFFFFF00 ;
+	    }
+	    OF.sendAll(status);
+	    
+	    //LED strip
+            for (int i = 0; i < strip.num_channel; i++)
+	    {
+                for (int j = 0; j < Config::WS2812_NUM_LED[i]; j++)
+		{
+                    LEDstatus[i][j] = 0xFFFFFF00 + a;
+		}
+	    }
             strip.sendAll(LEDstatus);
-            OF.sendAll(status);
-        usleep(100);
+            
+            sleep(1/256); //sleep(<total time (sec)> / <range of a>)
         }
+
+	sleep(1); //delay time when light off
     }
     strip.finish();
     return 0;

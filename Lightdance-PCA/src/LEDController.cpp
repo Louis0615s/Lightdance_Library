@@ -13,13 +13,17 @@ void LEDColor::setColor(const int &colorCode) {
     if ((R + G + B) > 0) {
         float a = A / 255.0;
         
-        r_cal = (1.0) * R / (R + G + B);
-        g_cal = (1.0) * G / (R + G + B);
-        b_cal = (1.0) * B / (R + G + B);
+        r_cal = (1.0) * (R / 255.0) * a;
+        g_cal = (1.0) * (G / 255.0) * a;
+        b_cal = (1.0) * (B / 255.0) * a;
 
-        r_cal *= a * Config::LED_MAX_BRIGHTNESS;
-        g_cal *= a * Config::LED_MAX_BRIGHTNESS;
-        b_cal *= a * Config::LED_MAX_BRIGHTNESS; 
+	r_cal = pow(r_cal, Config::GAMMA_LED_R);
+	g_cal = pow(g_cal, Config::GAMMA_LED_G);
+	b_cal = pow(b_cal, Config::GAMMA_LED_B);
+
+        r_cal *= Config::LED_MAX_BRIGHTNESS;
+        g_cal *= Config::LED_MAX_BRIGHTNESS;
+        b_cal *= Config::LED_MAX_BRIGHTNESS; 
     }
     else {
         r = g = b = 0;
@@ -72,7 +76,7 @@ int LEDController::sendAll(const std::vector<std::vector<int>> &statusLists) {
     // Check if data size is consistent with stored during initialization
     for (int i = 0; i < num_channel; i++) {
         if (statusLists[i].size() > ledString[i].channel[0].count) {
-            fprintf(stderr, "Error: Strip %d is longer then init settings: %d", (int)statusLists[i].size(), ledString[i].channel[0].count);
+            fprintf(stderr, "Error: Strip %d is longer then init settings: %d\n", (int)statusLists[i].size(), ledString[i].channel[0].count);
             return -1;
         }
     }

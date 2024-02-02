@@ -1,25 +1,46 @@
-[01;34m.[0m
-├── [01;34minclude[0m
+.
+├── CMakeLists.txt
+├── include
 │   ├── Config.h
 │   ├── LEDController.h
 │   ├── OFController.h
-│   └── [01;34mws2811_include[0m
+│   └── rpi_ws281x
 │       ├── clk.h
+│       ├── CMakeLists.txt
+│       ├── DEBIAN
+│       │   ├── control
+│       │   ├── postinst
+│       │   ├── postrm
+│       │   └── prerm
+│       ├── dma.c
 │       ├── dma.h
 │       ├── gpio.h
+│       ├── LICENSE
+│       ├── linux.py
+│       ├── mailbox.c
 │       ├── mailbox.h
+│       ├── main.c
+│       ├── pcm.c
 │       ├── pcm.h
+│       ├── pkg-config.pc.in
+│       ├── pwm.c
 │       ├── pwm.h
+│       ├── README.md
+│       ├── rpihw.c
 │       ├── rpihw.h
+│       ├── SConscript
+│       ├── SConstruct
+│       ├── version
+│       ├── version.h.in
+│       ├── version.py
+│       ├── ws2811.c
 │       └── ws2811.h
-├── LEDController.o
-├── OFController.o
-├── [01;32mout[0m
-├── [01;34msrc[0m
+├── README.md
+├── src
 │   ├── AllMain.cpp
 │   ├── LEDController.cpp
 │   ├── LightOff.cpp
 │   └── OFController.cpp
 └── tree.txt
 
-4 directories, 19 files
+4 directories, 39 files

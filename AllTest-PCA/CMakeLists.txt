@@ -14,7 +14,6 @@ add_executable(AllMain ./src/AllMain.cpp)
 
 add_subdirectory(./include/rpi_ws281x)
 
-
 target_link_libraries(
 	AllMain
 	PUBLIC
