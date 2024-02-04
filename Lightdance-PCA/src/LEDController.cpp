@@ -37,19 +37,15 @@ uint32_t LEDColor::getRGB() { return rgb; }
 
 // LEDController
 LEDController::LEDController() {
-    int num = 0;
-    for(int i = 0; i < 8; i++) {
-        if(Config::WS2812_NUM_LED[i] != 0) num++;
-        else break;
-    }
-    num_channel = num;
+    num_channel = 0;
 }
-int LEDController::init() {
+int LEDController::init(const std::vector<int> &shape) {
     close_gpio();
     
     // initialize WS2812B
     ws2811_return_t ret;
     for (int i = 0; i < num_channel; i++) {
+	ledString[i].channel[0].count = shape[i];
         if ((ret = ws2811_init(&ledString[i])) != WS2811_SUCCESS) {
             fprintf(stderr, "ws2811_init %d failed: %s\n", i, ws2811_get_return_t_str(ret));
             return ret;
