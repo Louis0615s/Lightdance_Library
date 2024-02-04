@@ -8,20 +8,25 @@ using namespace std;
 #include "../include/OFController.h"
 
 int main()
-{
+{	
     //Optical Fiber (OF) Set Up
     OFController OF;
     vector<int> status;
     OF.init();
-    status.resize(5 * Config::NUMPCA);
+    status.resize(5*Config::NUMPCA);
 
     //LED strip set up
-    vector<vector<int>> LEDstatus;
     LEDController strip;
-    strip.init();
-    LEDstatus.resize(strip.num_channel);
-    for (int i = 0; i < strip.num_channel; i++)
-        LEDstatus[i].resize(Config::WS2812_NUM_LED[i]);
+    vector<vector<int>> LEDstatus;
+    vector<int> shape;
+    int num_strip = 8;
+    shape.clear();
+    shape.resize(num_strip);
+    for (int i = 0; i < num_strip; i++) shape[i] = 3;
+    strip.init(shape); 
+    LEDstatus.resize(num_strip);
+    for (int i = 0; i < num_strip; i++)
+	    LEDstatus[i].resize(shape[i]);
 
 	
     while (true)
@@ -40,9 +45,9 @@ int main()
 	    OF.sendAll(status);
 	    
 	    //LED strip
-            for (int i = 0; i < strip.num_channel; i++)
+            for (int i = 0; i < num_strip; i++)
 	    {
-                for (int j = 0; j < Config::WS2812_NUM_LED[i]; j++) 
+                for (int j = 0; j < shape[i]; j++) 
 	        {
                     LEDstatus[i][j] = 0xFFFFFF00 + a;
 		}
@@ -67,9 +72,9 @@ int main()
 	    OF.sendAll(status);
 	    
 	    //LED strip
-            for (int i = 0; i < strip.num_channel; i++)
+            for (int i = 0; i < num_strip; i++)
 	    {
-                for (int j = 0; j < Config::WS2812_NUM_LED[i]; j++)
+                for (int j = 0; j < shape[i]; j++)
 		{
                     LEDstatus[i][j] = 0xFFFFFF00 + a;
 		}
