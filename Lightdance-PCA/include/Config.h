@@ -3,8 +3,8 @@
 
 namespace Config
 {
-    inline constexpr int NUMPCA = 7;                                             // number of PCA
-    inline constexpr int PCAAddr[] = {0x1f, 0x20, 0x22, 0x23, 0x5b, 0x5c, 0x5e}; // PCA addresses
+    inline constexpr int NUMPCA = 8;                                             // number of PCA
+    inline constexpr int PCAAddr[] = {0x1f, 0x20, 0x22, 0x23, 0x5b, 0x5c, 0x5e, 0x5f}; // PCA addresses
     // inline constexpr int NUMPCA = 1;         // number of PCA
     // inline constexpr int PCAAddr[] = {0x5c}; // PCA addresses
 
