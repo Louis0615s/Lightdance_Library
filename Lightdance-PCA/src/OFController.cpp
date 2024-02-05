@@ -26,14 +26,15 @@ void OFColor::setColor(const int &colorCode)
         r_cal *= Config::OF_MAX_BRIGHTNESS_R;
         g_cal *= Config::OF_MAX_BRIGHTNESS_G;
         b_cal *= Config::OF_MAX_BRIGHTNESS_B;
+
+        r = int(r_cal);
+        g = int(g_cal);
+        b = int(b_cal);
     }
     else
     {
         r = g = b = 0;
     }
-    r = int(r_cal);
-    g = int(g_cal);
-    b = int(b_cal);
 }
 
 int OFColor::getR() { return r; }
