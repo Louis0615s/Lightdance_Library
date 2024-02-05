@@ -24,14 +24,16 @@ void LEDColor::setColor(const int &colorCode) {
         r_cal *= Config::LED_MAX_BRIGHTNESS;
         g_cal *= Config::LED_MAX_BRIGHTNESS;
         b_cal *= Config::LED_MAX_BRIGHTNESS; 
+	r = int(r_cal);
+    	g = int(g_cal);
+    	b = int(b_cal);
+    	rgb = (r << 16) + (g << 8) + b;
     }
     else {
         r = g = b = 0;
+	rgb = 0;
     }
-    r = int(r_cal);
-    g = int(g_cal);
-    b = int(b_cal);
-    rgb = (r << 16) + (g << 8) + b;
+    
 }
 uint32_t LEDColor::getRGB() { return rgb; }
 
