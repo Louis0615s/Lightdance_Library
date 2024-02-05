@@ -19,8 +19,6 @@ target_include_directories(
   ${INCLUDES}
 )
 
-add_subdirectory(./inc/rpi_ws281x)
-
 target_link_libraries(
 	hardware
 	${LED_LIBRARY}
