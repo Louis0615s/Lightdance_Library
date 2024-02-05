@@ -4,37 +4,14 @@
 │   ├── Config.h
 │   ├── LEDController.h
 │   ├── OFController.h
-│   └── rpi_ws281x
-│       ├── clk.h
-│       ├── CMakeLists.txt
-│       ├── DEBIAN
-│       │   ├── control
-│       │   ├── postinst
-│       │   ├── postrm
-│       │   └── prerm
-│       ├── dma.c
-│       ├── dma.h
-│       ├── gpio.h
-│       ├── LICENSE
-│       ├── linux.py
-│       ├── mailbox.c
-│       ├── mailbox.h
-│       ├── main.c
-│       ├── pcm.c
-│       ├── pcm.h
-│       ├── pkg-config.pc.in
-│       ├── pwm.c
-│       ├── pwm.h
-│       ├── README.md
-│       ├── rpihw.c
-│       ├── rpihw.h
-│       ├── SConscript
-│       ├── SConstruct
-│       ├── version
-│       ├── version.h.in
-│       ├── version.py
-│       ├── ws2811.c
-│       └── ws2811.h
+│   ├── clk.h
+│   ├── dma.h
+│   ├── gpio.h
+│   ├── mailbox.h
+│   ├── pcm.h
+│   ├── pwm.h
+│   ├── rpihw.h
+│   └── ws2811.h    
 ├── README.md
 ├── src
 │   ├── AllMain.cpp
