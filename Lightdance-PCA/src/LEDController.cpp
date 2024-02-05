@@ -1,5 +1,5 @@
 // compile: g++ -o LEDController.o -I./include -c LEDController.cpp
-#include "../include/LEDController.h"
+#include "../inc/LEDController.h"
 
 // LEDColor
 LEDColor::LEDColor() : r(0), g(0), b(0), rgb(0) {}

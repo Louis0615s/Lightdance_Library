@@ -1,5 +1,5 @@
 // compile: g++ -o OFController.o -I./include -c OFController.cpp
-#include "../include/OFController.h"
+#include "../inc/OFController.h"
 
 OFColor::OFColor() : r(0), g(0), b(0) {}
 

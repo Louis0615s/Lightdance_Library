@@ -4,8 +4,8 @@
 #include <vector>
 using namespace std;
 
-#include "../include/LEDController.h"
-#include "../include/OFController.h"
+#include "../inc/LEDController.h"
+#include "../inc/OFController.h"
 
 int main()
 {	
