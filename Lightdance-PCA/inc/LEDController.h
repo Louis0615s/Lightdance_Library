@@ -18,11 +18,11 @@
 #include <string>
 
 // library for WS2812
-#include "./rpi_ws281x/clk.h"
-#include "./rpi_ws281x/dma.h"
-#include "./rpi_ws281x/gpio.h"
-#include "./rpi_ws281x/pwm.h"
-#include "./rpi_ws281x/ws2811.h"
+#include "clk.h"
+#include "dma.h"
+#include "gpio.h"
+#include "pwm.h"
+#include "ws2811.h"
 
 #include "Config.h"
 
