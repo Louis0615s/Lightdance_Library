@@ -49,7 +49,7 @@ class LEDColor {
 class LEDController {
     public:
         LEDController();
-        int init();
+        int init(const std::vector<int> &shape);
         int sendAll(const std::vector<std::vector<int>> &statusLists);
         void finish();
         int num_channel;
