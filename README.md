@@ -6,19 +6,18 @@
 # directory tree of /Lightdance_Library/Lightdance-PCA
 
 Lightdance_Lightdance/Lightdance-PCA
-├── include
+├── inc
 │   ├── Config.h
 │   ├── LEDController.h
 │   ├── OFController.h
-│   └── ws2811_include
-│       ├── clk.h
-│       ├── dma.h
-│       ├── gpio.h
-│       ├── mailbox.h
-│       ├── pcm.h
-│       ├── pwm.h
-│       ├── rpihw.h
-│       └── ws2811.h
+│   ├── clk.h
+│   ├── dma.h
+│   ├── gpio.h
+│   ├── mailbox.h
+│   ├── pcm.h
+│   ├── pwm.h
+│   ├── rpihw.h
+│   └── ws2811.h
 ├── LEDController.o
 ├── OFController.o
 ├── out
@@ -33,7 +32,7 @@ Lightdance_Lightdance/Lightdance-PCA
 1| how to use this code
 
 Only modify the following two files:
-a. /include/Config.h
+a. /inc/Config.h
   Adjust hardware properties including:
   i. number of PCA (which controls OF)
   ii. number of LED on LED-strip
