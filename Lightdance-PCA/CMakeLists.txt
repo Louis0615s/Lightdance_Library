@@ -4,7 +4,7 @@ project(hardware)
 
 set(CMAKE_CXX_STANDARD 17)
 set(LED_LIBRARY ws2811)
-set(INCLUDES include)
+set(INCLUDES inc)
 
 add_library(
 	hardware
@@ -19,7 +19,7 @@ target_include_directories(
   ${INCLUDES}
 )
 
-add_subdirectory(./include/rpi_ws281x)
+add_subdirectory(./inc/rpi_ws281x)
 
 target_link_libraries(
 	hardware
