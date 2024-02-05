@@ -48,10 +48,10 @@ b. /src/AllMain.cpp
 2| compile & execution
 
 # 編譯 OFController.cpp
-g++ -o OFController.o -I./include -c ./src/OFController.cpp
+g++ -o OFController.o -I./inc -c ./src/OFController.cpp
 
 # 編譯 LEDController.cpp
-g++ -o LEDController.o -I./include -c ./src/LEDController.cpp
+g++ -o LEDController.o -I./inc -c ./src/LEDController.cpp
 
 # 編譯 AllMain.cpp，連結 LEDController.o 和 OFController.o，使用 lws2811 库，生成可執行文件 AllMain
 g++ ./src/AllMain.cpp LEDController.o OFController.o -lws2811 -o AllMain
