@@ -107,7 +107,7 @@ int OFController::sendAll(const vector<int> &statusLists)
                 }
                 if (write(fd[i], buffer, 16) != 16)
                 {
-                    fprintf(stderr, "Failed to write to the I2C bus %x.\n", Config::PCAAddr[i]);
+                    // fprintf(stderr, "Failed to write to the I2C bus %x.\n", Config::PCAAddr[i]);
                     err_flag[i] = true;
                 }
             }
