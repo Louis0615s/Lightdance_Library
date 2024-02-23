@@ -46,6 +46,7 @@ int LEDController::init(const std::vector<int> &shape) {
     
     // initialize WS2812B
     ws2811_return_t ret;
+    num_channel = shape.size();
     for (int i = 0; i < num_channel; i++) {
 	ledString[i].channel[0].count = shape[i];
         if ((ret = ws2811_init(&ledString[i])) != WS2811_SUCCESS) {
